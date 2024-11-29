@@ -53,3 +53,9 @@ Follow these steps to set up the project on your local machine:
 7. **Enter valid ticker symbol**  
    Enter any ticker symbol of a publicly traded stock, such as ```AAPL``` for Apple Inc.
 
+
+8. **Output**
+   Current output should look like this:
+
+   ![Output for the input AAPL](documentation/images/example_chart_apple.png "Apple Stock Prices")
+
