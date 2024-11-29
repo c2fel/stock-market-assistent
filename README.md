@@ -16,13 +16,13 @@ Follow these steps to set up the project on your local machine:
 1. **Clone the repository**  
    Clone the project from the Git repository using the following command:
    ```
-   git clone https://github.com/tobifra/multi-AGV-task-level-collaboration
+   git clone https://github.com/c2fel/stock-market-assistent
    ```
 
 2. **Navigate to the project directory**  
    Change into the project directory:
    ```
-   cd multi-AGV-task-level-collaboration
+   cd stock-market-assistent
    ```
 
 3. **Install Python**  
