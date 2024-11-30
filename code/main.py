@@ -31,12 +31,21 @@ except ValueError:
 if numberCruncher.check_ticker_exists(symbol):
     # try to download stock market date for the given symbol
     data = yf.download(symbol, start="2020-01-01", end="2021-01-01")
+    """
+        Idea to extend: Ask user want period he wants to observe: 
+            (1) ytd as default, 
+            (2) last 12 months, 
+            (3) custom inputs for start and end date
+    """
+
+    ticker_info = yf.Ticker(symbol)
+    shortName = ticker_info.info["shortName"]
 
     # Schließen-Kurse plotten
     data['Close'].plot()
 
     # Titel setzen
-    plt.title("Apple Stock Prices")
+    plt.title(f"{shortName} Stock Prices")
 
     # show plot
     plt.show()
