@@ -6,9 +6,12 @@ def check_ticker_exists(ticker):
         ticker_info = yf.Ticker(ticker)
         # Abrufen von allgemeinen Informationen über das Ticker-Objekt
         info = ticker_info.info
-        print("")
-        print(info)
-        print("")
+
+        # only for debugging
+        # print("")
+        # print(info)
+        # print("")
+
         # Wenn "info" nicht leer ist und "regularMarketPrice" vorhanden ist, dann existiert der Ticker
         if info and "address1" in info:
             # print(f"Ticker {ticker} existiert.")
@@ -19,3 +22,7 @@ def check_ticker_exists(ticker):
     except ValueError as e:
         print(f"Fehler beim Abrufen des Tickers {ticker}: {e}")
         return False
+
+#
+# add more functionality here
+#

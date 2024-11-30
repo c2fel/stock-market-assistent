@@ -1,3 +1,10 @@
+![GitHub language count](https://img.shields.io/github/languages/count/c2fel/stock-market-assistent)
+![Static Badge](https://img.shields.io/badge/Python-blue)
+![Static Badge](https://img.shields.io/badge/very_cool_project-EFBF04)
+
+
+<hr style="height: 5px; background: grey; border: none; margin: 25px 0px 40px 0px;">
+
 # stock-market-assistent
 Group project for skills: advanced programming language course in autumn semester 2024
 
@@ -59,3 +66,8 @@ Follow these steps to set up the project on your local machine:
 
    ![Output for the input AAPL](documentation/images/example_chart_apple.png "Apple Stock Prices")
 
+## Contributions
+This project have been built in a collaborative effort by:
+- Christoph Büehler
+- Joakim Brunstrom
+- Christoph Zweifel
