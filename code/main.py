@@ -1,8 +1,10 @@
-import yfinance as yf
-import sys
 import os
+import sys
+from datetime import datetime
+
 import matplotlib.pyplot as plt
 import numberCruncher
+import yfinance as yf
 
 """
     This app asks for trading symbol of a public traded company.
@@ -13,7 +15,7 @@ import numberCruncher
 """
 
 # Omit error print, else yf.download will always log even on success
-sys.stderr = open(os.devnull, 'w')
+sys.stderr = open(os.devnull, "w")
 
 print("")
 print("#############################################")
@@ -22,30 +24,38 @@ print("#############################################")
 print("")
 
 try:
-    symbol = str(input("Please enter tracking symbol of a publicly traded stock to start analysis: "))
-    # AAPL would be a valid input as it represented Apple
+    print(
+        "You can enter multiple trading symbols (e.g. AAPL, MSFT, TSLA) in a comma separated list."
+    )
+    print(
+        "The app will then fetch the data for each symbol in the current year and displays"
+    )
+    print("a comparison.")
+    symbol = str(
+        input(
+            "Please enter tracking symbol(s) of a publicly traded stock to start the analysis: "
+        )
+    )
+    # Parse the input string and create a list of symbols
+    symbols = [s.strip() for s in symbol.split(",")]
 
 except ValueError:
-    print("You need to provide a string. ")
+    print("You need to provide a string.")
 
-if numberCruncher.check_ticker_exists(symbol):
-    # try to download stock market date for the given symbol
-    data = yf.download(symbol, start="2020-01-01", end="2021-01-01")
-    """
-        Idea to extend: Ask user want period he wants to observe: 
-            (1) ytd as default, 
-            (2) last 12 months, 
-            (3) custom inputs for start and end date
-    """
+# Check if the provided symbols exist
+if numberCruncher.check_ticker_exists(symbols):
+    # Calculate the start and end dates for the current year
+    start_date = f"{datetime.now().year}-01-01"
+    end_date = datetime.now().strftime("%Y-%m-%d")
 
-    ticker_info = yf.Ticker(symbol)
-    shortName = ticker_info.info["shortName"]
+    # Try to download stock market data for the given symbols for the current year-to-date
+    data = yf.download(symbols, start=start_date, end=end_date)
 
-    # Schließen-Kurse plotten
-    data['Close'].plot()
+    # Plot closing prices
+    data["Close"].plot()
 
-    # Titel setzen
-    plt.title(f"{shortName} Stock Prices")
+    # Set title
+    plt.title(f"{symbols} Stock Prices")
 
-    # show plot
+    # Show plot
     plt.show()
