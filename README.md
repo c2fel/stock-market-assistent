@@ -76,5 +76,5 @@ Follow these steps to set up the project on your local machine:
 This project have been built in a collaborative effort by:
 
 - Christoph Büehler
-- Joakim Brunstrom
+- Joakim Brunstrøm
 - Christoph Zweifel
